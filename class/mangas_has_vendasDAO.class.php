@@ -2,7 +2,7 @@
 
 include_once "mangas_has_vendas.class.php";
 
-class mangas_has_vendaDAO
+class mangas_has_vendasDAO
 {
     private $conexao;
 
@@ -28,6 +28,14 @@ class mangas_has_vendaDAO
         $sql->bindValue(":quantidade", $obj->getQuantidade());
         $sql->execute();
         return $this->conexao->lastInsertId();
+    }
+
+    public function listarPorVenda($id_vendas)
+    {
+        $sql = $this->conexao->prepare("SELECT * FROM mangas_has_vendas WHERE id_vendas = :id_vendas");
+        $sql->bindParam(':id_vendas', $id_vendas, PDO::PARAM_INT);
+        $sql->execute();
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }  

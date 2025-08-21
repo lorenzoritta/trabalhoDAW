@@ -20,6 +20,7 @@ $retorno = $objDAO->retornarUm($id);
     <h1>Editar Produto em Oferta</h1>
     
     <form action="ofertar_ok.php" method="post">
+        
         <input type="hidden" name="id_manga" value="<?= $retorno["id_manga"] ?>" />
 
         oferta:
