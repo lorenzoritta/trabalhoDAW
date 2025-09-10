@@ -13,7 +13,11 @@ $obj->setUsuario($_POST["usuario"]);
 $objDAO = new clienteDAO();
 $retorno = $objDAO->inserir($obj);
 if ($retorno)
-    echo "adicionado com succeso";
+if($retorno !== 2){
+    echo "adicionado com sucesso";
+}else{
+    echo "email cadastrado tente outro";
+}
 else
     echo "erro! por favor,consulte um adm";
 ?>
