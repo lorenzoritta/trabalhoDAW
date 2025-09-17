@@ -36,7 +36,8 @@ class clienteDAO
             );
             $sql->bindValue(":nome", $obj->getNome(), );
             $sql->bindValue(":email", $obj->getEmail(), );
-            $sql->bindValue(":senha", $obj->getSenha(), );
+            $salt = "_" . $obj->getEmail();
+            $sql->bindValue(":senha", hash('md5', $obj->getSenha() . $salt));
             return $sql->execute();
         } else {
             return 2;
@@ -65,14 +66,15 @@ class clienteDAO
     public function login(cliente $cliente)
     {
         $sql = $this->conexao->prepare("
-        SELECT * FROM cliente WHERE email = :email OR usuario = :usuario");
+        SELECT * FROM cliente WHERE email = :email OR usuario = :usuario
+    ");
+        $sql->bindValue(":usuario", $cliente->getUsuario());
         $sql->bindValue(":email", $cliente->getEmail());
-        $sql->bindValue(":usuario", $cliente->getEmail());
-
         $sql->execute();
         if ($sql->rowCount() > 0) {
+            $salt = "_" . $cliente->getEmail();
             while ($retorno = $sql->fetch()) {
-                if ($retorno["senha"] == $cliente->getSenha()) {
+                if ($retorno["senha"] == hash('md5', $cliente->getSenha().$salt)) {
 
                     return $retorno; //tudo ok! faça o login
                 }
