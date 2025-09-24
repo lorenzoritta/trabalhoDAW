@@ -37,7 +37,7 @@ class clienteDAO
             $sql->bindValue(":nome", $obj->getNome(), );
             $sql->bindValue(":email", $obj->getEmail(), );
             $salt = "_" . $obj->getEmail();
-            $sql->bindValue(":senha", hash('md5', $obj->getSenha() . $salt));
+            $sql->bindValue(":senha", hash('md4', $obj->getSenha() . $salt));
             return $sql->execute();
         } else {
             return 2;
@@ -74,7 +74,7 @@ class clienteDAO
         if ($sql->rowCount() > 0) {
             $salt = "_" . $cliente->getEmail();
             while ($retorno = $sql->fetch()) {
-                if ($retorno["senha"] == hash('md5', $cliente->getSenha().$salt)) {
+                if ($retorno["senha"] == hash('md4', $cliente->getSenha().$salt)) {
 
                     return $retorno; //tudo ok! faça o login
                 }
