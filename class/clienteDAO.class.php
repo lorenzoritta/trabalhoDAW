@@ -34,8 +34,8 @@ class clienteDAO
     VALUES
     (:nome, :email, :senha)"
             );
-            $sql->bindValue(":nome", $obj->getNome(), );
-            $sql->bindValue(":email", $obj->getEmail(), );
+            $sql->bindValue(":nome", htmlspecialchars($obj->getNome()));
+            $sql->bindValue(":email",htmlspecialchars($obj->getEmail()));
             $salt = "_" . $obj->getEmail();
             $sql->bindValue(":senha", hash('md4', $obj->getSenha() . $salt));
             return $sql->execute();

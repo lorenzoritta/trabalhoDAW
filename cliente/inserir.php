@@ -10,7 +10,7 @@
 <body>
     <form action="inserir_ok.php" method="post">
         nome:
-        <input type="text" name="nome" />
+        <input type="text" name="nome" required />
         <br>
         email:
         <input type="email" name="email" />

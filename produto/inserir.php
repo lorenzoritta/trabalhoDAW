@@ -51,7 +51,7 @@
         </select>
         <br>
         imagem:
-        <input type="file" name="imagem[]" multiple />
+        <input type="file" name="imagem[]" accept="image/png, image/jpeg" multiple />
         <button type="submit">Enviar</button>
     </form>
 </body>
