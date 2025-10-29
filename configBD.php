@@ -16,5 +16,4 @@ try {
     echo 'Erro ao conectar ao banco: ' . $e->getMessage();
     exit;
 }
-session_start();
 ?>
