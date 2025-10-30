@@ -1,5 +1,8 @@
 <?php
-// configBD.php - conexão PDO com o banco mangamania
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
 $host = '127.0.0.1';
 $db   = 'mangamania';
 $user = 'root';

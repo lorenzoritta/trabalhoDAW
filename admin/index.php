@@ -6,7 +6,8 @@ $stmt = $pdo->query('SELECT m.*, c.nome AS categoria FROM mangas m LEFT JOIN cat
 $mangas = $stmt->fetchAll();
 ?>
 <!doctype html><html><head><meta charset="utf-8"><title>Admin - Mangas</title><link rel="stylesheet" href="../assets/style.css"></head><body>
-<header class="brand"><h1>Admin - Mangamania</h1><nav><a href="manga_add.php">Novo mangá</a> | <a href="vendas.php">Vendas</a> | <a href="../index.php">Ver site</a></nav></header>
+<header class="brand"><h1>Admin - Mangamania</h1><nav><a href="manga_add.php">Novo mangá</a> | <a href="vendas.php">Vendas</a> | <a href="../index.php">Ver site</a> |<a href="logout.php" class="botao-logout">Sair</a></nav></header> 
+
 <main class="container">
   <h2>Gerenciar Mangás</h2>
   <table class="table"><thead><tr><th>ID</th><th>Nome</th><th>Preço</th><th>Categoria</th><th>Ações</th></tr></thead><tbody>

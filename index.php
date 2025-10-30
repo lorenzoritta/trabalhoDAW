@@ -18,6 +18,7 @@ $mangas = $stmt->fetchAll();
   <nav>
     <a href="cart.php">Carrinho (<?php echo isset($_SESSION['cart'])? array_sum(array_column($_SESSION['cart'],'q')):0 ?>)</a>
     <a href="admin/login.php">Área do Administrador</a>
+
   </nav>
 </header>
 <main class="container">

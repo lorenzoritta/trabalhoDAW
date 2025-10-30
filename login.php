@@ -17,9 +17,6 @@
         <br>
         <button type="submit">Enviar</button>
     </form>
-    <div class="mb-3">
-        <div class="g-recaptcha" data-sitekey="6Ld-kvsrAAAAAPmQGHBh-Vk6FIY90pJAmQfuS76R"></div>
-    </div>
 </body>
 
 </html>
