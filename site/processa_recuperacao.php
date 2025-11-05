@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$token, $expira, $email]);
 
-        $link = "http://localhost/LorenzoDAW/site/nova_senha.php?token=" . $token;
+        $link = "http://localhost/LorenzoDAW/site/nova_senha.php?token=" . $token.'&salt=_'.$email;
 
         // Envio do email — simples (ideal usar PHPMailer)
         echo "<p>Simulação: e-mail seria enviado para <strong>$email</strong></p>";

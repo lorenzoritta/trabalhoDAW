@@ -3,7 +3,7 @@ include_once "../configBD.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $token = htmlspecialchars($_POST["token"]);
-    $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
+    $senha = hash('md4',$_POST["senha"].$_POST["salt"]);
 
     $sql = "UPDATE cliente SET senha=?, token_recuperacao=NULL, expira_token=NULL WHERE token_recuperacao=?";
     $stmt = $pdo->prepare($sql);

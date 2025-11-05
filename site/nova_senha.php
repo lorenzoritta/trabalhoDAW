@@ -14,6 +14,7 @@ if (isset($_GET["token"])) {
           <input type="hidden" name="token" value="'.$token.'">
           <label>Nova senha:</label><br>
           <input type="password" name="senha" required><br><br>
+          <input type="hidden" name="salt" value="'.$_GET["salt"].'">
           <button type="submit">Salvar nova senha</button>
         </form>';
     } else {
